@@ -46,12 +46,12 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button Content="A" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="A"/>
-            <Button Content="B" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="B" RenderTransformOrigin="0.476,0.725"/>
-            <Button Content="C" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="C"/>
+            <Button Content="A" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="A" Width="67"/>
+            <Button Content="B" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="B" RenderTransformOrigin="0.476,0.725" Width="67"/>
+            <Button Content="C" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="C" Width="67"/>
             <Button Content="D" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="D"/>
-            <Button Content="E" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="E"/>
-            <Button Content="F" HorizontalAlignment="Left" Margin="10,397,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.476,1.65" Click="Button_Click_1" CommandParameter="F"/>
+            <Button Content="E" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="E" Width="67"/>
+            <Button Content="F" HorizontalAlignment="Left" Margin="10,397,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.476,1.65" Click="Button_Click_1" CommandParameter="F" Width="67"/>
             <Image x:Name="chordImage" Height="659" Margin="72,27,20,0" VerticalAlignment="Top" Width="364" />
             <Button Content="Next Page" HorizontalAlignment="Left" Margin="73,587,0,0" VerticalAlignment="Top" Height="109" Click="Button_Click_2"/>
         </Grid>

@@ -52,7 +52,8 @@
             <Button Content="D" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="D"/>
             <Button Content="E" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="E"/>
             <Button Content="F" HorizontalAlignment="Left" Margin="10,397,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.476,1.65" Click="Button_Click_1" CommandParameter="F"/>
-            <Image x:Name="chordImage" Height="659" Margin="82,27,0,0" VerticalAlignment="Top" Width="364" />
+            <Image x:Name="chordImage" Height="659" Margin="72,27,20,0" VerticalAlignment="Top" Width="364" />
+            <Button Content="Next Page" HorizontalAlignment="Left" Margin="73,587,0,0" VerticalAlignment="Top" Height="109" Click="Button_Click_2"/>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are

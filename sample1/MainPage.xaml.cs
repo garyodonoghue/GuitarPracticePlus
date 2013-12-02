@@ -34,32 +34,32 @@ namespace sample1
             Button _myButton = (Button)sender;
             string value = _myButton.CommandParameter.ToString();
 
-            if (value.Equals("A"))
+            if (value.Equals("E"))
             {
                 imgSource = new BitmapImage(
                  new Uri("/Resources/achord.jpg", UriKind.Relative));
             }
-            else if (value.Equals("B"))
+            else if (value.Equals("A"))
             {
                 imgSource = new BitmapImage(
                  new Uri("/Resources/bChord.jpg", UriKind.Relative));
             }
-            else if (value.Equals("C"))
+            else if (value.Equals("D"))
             {
                 imgSource = new BitmapImage(
                  new Uri("/Resources/cChord.jpg", UriKind.Relative));
             }
-            else if (value.Equals("D"))
+            else if (value.Equals("G"))
             {
                 imgSource = new BitmapImage(
                  new Uri("/Resources/dChord.jpg", UriKind.Relative));
             }
-            else if (value.Equals("E"))
+            else if (value.Equals("B"))
             {
                 imgSource = new BitmapImage(
                  new Uri("/Resources/eChord.jpg", UriKind.Relative));
             }
-            else if (value.Equals("F"))
+            else if (value.Equals("e"))
             {
                 imgSource = new BitmapImage(
                  new Uri("/Resources/fChord.jpg", UriKind.Relative));

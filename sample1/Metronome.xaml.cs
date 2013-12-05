@@ -12,7 +12,6 @@ namespace sample1
 {
     public partial class Metronome : PhoneApplicationPage
     {
-
         public Metronome()
         {
             InitializeComponent();
@@ -20,12 +19,30 @@ namespace sample1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            int value = Convert.ToInt32(freqBtn.Content);
+
+            if ((value)>0){
+                value = value - 1;
+                freqBtn.Content = value;
+            };
+
+            playSound();
+        }
+
+        private void playSound()
+        {
+            //throw new NotImplementedException();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            int value = Convert.ToInt32(freqBtn.Content);
 
+            if ((value) < 10)
+            {
+                value = value + 1;
+                freqBtn.Content = value;
+            };
         }
     }
 }

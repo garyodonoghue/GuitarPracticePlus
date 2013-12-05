@@ -17,9 +17,13 @@ namespace sample1
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        //Change the string the user is trying to tune to
+        private void string_Click(object sender, RoutedEventArgs e)
         {
-
+            Button _Button = (Button)sender;
+            string guitar_string = _Button.CommandParameter.ToString();
+            noteBtn.Content = guitar_string;
         }
+
     }
 }

@@ -18,6 +18,10 @@ namespace sample1
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        //default the string to be E, this will be used to track what string the 
+        //user is tuning to 
+        string currentString = "E"; 
+        
         // Constructor
         public MainPage()
         {

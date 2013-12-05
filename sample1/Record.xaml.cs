@@ -59,5 +59,10 @@ namespace sample1
             sound = new SoundEffect(stream.ToArray(), microphone.SampleRate, AudioChannels.Mono);
             sound.Play();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Tuning.xaml", UriKind.Relative));
+        }
     }
 }

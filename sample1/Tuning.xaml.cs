@@ -30,5 +30,10 @@ namespace sample1
             currentString = guitar_string;
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Metronome.xaml", UriKind.Relative));
+        }
+
     }
 }

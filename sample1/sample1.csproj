@@ -97,6 +97,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Metronome.xaml.cs">
+      <DependentUpon>Metronome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record.xaml.cs">
       <DependentUpon>Record.xaml</DependentUpon>
@@ -118,6 +121,9 @@
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Metronome.xaml">
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Record.xaml">
       <SubType>Designer</SubType>

@@ -34,7 +34,8 @@
             <Button x:Name="gStringBtn" Content="G" HorizontalAlignment="Left" Margin="0,247,0,0" VerticalAlignment="Top" Width="71" Click="string_Click" CommandParameter="G"/>
             <Button x:Name="bStringBtn" Content="B" HorizontalAlignment="Left" Margin="0,319,0,0" VerticalAlignment="Top" Width="71" Click="string_Click" CommandParameter="B"/>
             <Button x:Name="highEStringBtn" Content="e" HorizontalAlignment="Left" Margin="0,391,0,0" VerticalAlignment="Top" Width="71" Click="string_Click" CommandParameter="e"/>
-            
+            <Button Content="Metronome" HorizontalAlignment="Left" Margin="268,562,0,0" VerticalAlignment="Top" Width="188"/>
+
 
         </Grid>
         <Button Content="&#x266D;" HorizontalAlignment="Left" Margin="103,192,0,0" VerticalAlignment="Top" Width="85" Grid.Row="1" RenderTransformOrigin="0.262,0.542"/>

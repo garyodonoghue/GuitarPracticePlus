@@ -12,6 +12,10 @@ namespace sample1
 {
     public partial class Tuning : PhoneApplicationPage
     {
+        //default the string to be E, this will be used to track what string the 
+        //user is tuning to 
+        string currentString = "E"; 
+
         public Tuning()
         {
             InitializeComponent();
@@ -23,6 +27,7 @@ namespace sample1
             Button _Button = (Button)sender;
             string guitar_string = _Button.CommandParameter.ToString();
             noteBtn.Content = guitar_string;
+            currentString = guitar_string;
         }
 
     }

@@ -160,14 +160,15 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\aChord.jpg" />
-    <Content Include="Resources\bChord.jpg" />
-    <Content Include="Resources\cChord.jpg" />
-    <Content Include="Resources\dChord.jpg" />
-    <Content Include="Resources\eChord.jpg" />
-    <Content Include="Resources\fChord.jpg" />
-    <Content Include="Resources\flat.jpg" />
-    <Resource Include="Resources\sharp.gif" />
+    <Content Include="Images\aChord.jpg" />
+    <Content Include="Images\bChord.jpg" />
+    <Content Include="Images\cChord.jpg" />
+    <Content Include="Images\dChord.jpg" />
+    <Content Include="Images\eChord.jpg" />
+    <Content Include="Images\fChord.jpg" />
+    <Content Include="Images\flat.jpg" />
+    <Content Include="Sound\Click1.wav" />
+    <Resource Include="Images\sharp.gif" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
@@ -175,6 +176,7 @@
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

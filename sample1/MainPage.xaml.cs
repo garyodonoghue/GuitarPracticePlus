@@ -33,35 +33,35 @@ namespace sample1
             Button _myButton = (Button)sender;
             string value = _myButton.CommandParameter.ToString();
 
-            if (value.Equals("E"))
+            if (value.Equals("A"))
             {
                 imgSource = new BitmapImage(
-                 new Uri("/Resources/achord.jpg", UriKind.Relative));
-            }
-            else if (value.Equals("A"))
-            {
-                imgSource = new BitmapImage(
-                 new Uri("/Resources/bChord.jpg", UriKind.Relative));
-            }
-            else if (value.Equals("D"))
-            {
-                imgSource = new BitmapImage(
-                 new Uri("/Resources/cChord.jpg", UriKind.Relative));
-            }
-            else if (value.Equals("G"))
-            {
-                imgSource = new BitmapImage(
-                 new Uri("/Resources/dChord.jpg", UriKind.Relative));
+                 new Uri("/Images/aChord.jpg", UriKind.Relative));
             }
             else if (value.Equals("B"))
             {
                 imgSource = new BitmapImage(
-                 new Uri("/Resources/eChord.jpg", UriKind.Relative));
+                 new Uri("/Images/bChord.jpg", UriKind.Relative));
             }
-            else if (value.Equals("e"))
+            else if (value.Equals("C"))
             {
                 imgSource = new BitmapImage(
-                 new Uri("/Resources/fChord.jpg", UriKind.Relative));
+                 new Uri("/Images/cChord.jpg", UriKind.Relative));
+            }
+            else if (value.Equals("D"))
+            {
+                imgSource = new BitmapImage(
+                 new Uri("/Images/dChord.jpg", UriKind.Relative));
+            }
+            else if (value.Equals("E"))
+            {
+                imgSource = new BitmapImage(
+                 new Uri("/Images/eChord.jpg", UriKind.Relative));
+            }
+            else if (value.Equals("F"))
+            {
+                imgSource = new BitmapImage(
+                 new Uri("/Images/fChord.jpg", UriKind.Relative));
             }
 
             image.Source = imgSource;

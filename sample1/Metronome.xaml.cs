@@ -7,6 +7,9 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using System.IO;
 
 namespace sample1
 {
@@ -21,17 +24,24 @@ namespace sample1
         {
             int value = Convert.ToInt32(freqBtn.Content);
 
-            if ((value)>0){
+            if ((value) > 0)
+            {
                 value = value - 1;
                 freqBtn.Content = value;
-            };
 
-            playSound();
+                playSound(value);
+            }
         }
 
-        private void playSound()
+        private void playSound(int frequency)
         {
-            //throw new NotImplementedException();
+            Stream stream = TitleContainer.OpenStream("Sound/Click1.wav");
+            SoundEffect effect = SoundEffect.FromStream(stream);
+            FrameworkDispatcher.Update();
+            effect.Play();
+
+            //System.Threading.Thread.Sleep(1000);
+            //playSound(frequency);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -43,6 +53,8 @@ namespace sample1
                 value = value + 1;
                 freqBtn.Content = value;
             };
+
+            playSound(value);
         }
     }
 }

@@ -21,8 +21,9 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="GUITAR GUIDE" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="GuitarPracticePlus" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Chords" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -33,8 +34,7 @@
             <Button Content="D" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="D"/>
             <Button Content="E" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Click="Button_Click_1" CommandParameter="E" Width="67"/>
             <Button Content="F" HorizontalAlignment="Left" Margin="10,397,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.476,1.65" Click="Button_Click_1" CommandParameter="F" Width="67"/>
-            <Image x:Name="chordImage" Height="659" Margin="72,27,20,0" VerticalAlignment="Top" Width="364" />
-            <Button Content="Next Page" HorizontalAlignment="Left" Margin="73,587,0,0" VerticalAlignment="Top" Height="109" Click="Button_Click_2"/>
+            <Image x:Name="chordImage" Height="580" Margin="73,10,19,0" VerticalAlignment="Top" Width="364" />
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are

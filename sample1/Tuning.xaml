@@ -22,6 +22,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="GuitarPracticePlus" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock Text="Tuner" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
@@ -34,7 +35,6 @@
             <Button x:Name="gStringBtn" Content="G" HorizontalAlignment="Left" Margin="0,247,0,0" VerticalAlignment="Top" Width="71" Click="string_Click" CommandParameter="G"/>
             <Button x:Name="bStringBtn" Content="B" HorizontalAlignment="Left" Margin="0,319,0,0" VerticalAlignment="Top" Width="71" Click="string_Click" CommandParameter="B"/>
             <Button x:Name="highEStringBtn" Content="e" HorizontalAlignment="Left" Margin="0,391,0,0" VerticalAlignment="Top" Width="71" Click="string_Click" CommandParameter="e"/>
-            <Button Content="Metronome" HorizontalAlignment="Left" Margin="268,562,0,0" VerticalAlignment="Top" Width="188" Click="Button_Click_2"/>
 
 
         </Grid>

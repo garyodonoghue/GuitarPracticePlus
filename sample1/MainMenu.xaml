@@ -6,12 +6,14 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:sample1"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    local:TiltEffect.IsTiltEnabled="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -28,10 +30,12 @@
 
         <!--ContentPanel - place additional content here-->
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12">
-            <TextBlock Tap="GoToChords" FontSize="40" HorizontalAlignment="Left" Margin="10" Text="chords" VerticalAlignment="Top" Width="456" Height="66"/>
-            <TextBlock Tap="GoToTuner" FontSize="40" Text="tuner" VerticalAlignment="Top" Margin="10" Width="456" Height="66"/>
-            <TextBlock Tap="GoToMetronome" FontSize="40" Text="metronome" VerticalAlignment="Top" Margin="10" Width="456" Height="66"/>
-            <TextBlock Tap="GoToLooper" FontSize="40" Text="looper" VerticalAlignment="Top" Margin="10" Width="456" Height="66"/>
+            <ListBox HorizontalAlignment="Left" Name="listBox1" VerticalAlignment="Top" Width="460" ItemsSource="{Binding}" >
+                <ListBoxItem Content="chords" Padding="12" Tap="GoToChords" FontSize="40"></ListBoxItem>
+                <ListBoxItem Content="metronome" Padding="12" Tap="GoToMetronome" FontSize="40"></ListBoxItem>
+                <ListBoxItem Content="tuner" Padding="12" Tap="GoToTuner" FontSize="40"></ListBoxItem>
+                <ListBoxItem Content="looper" Padding="12" Tap="GoToLooper" FontSize="40"></ListBoxItem>
+            </ListBox>
         </StackPanel>
             <Button Content="Upgrade to Pro" HorizontalAlignment="Left" Margin="12,492,0,0" Grid.Row="1" VerticalAlignment="Bottom"/>
 

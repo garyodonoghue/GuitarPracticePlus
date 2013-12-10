@@ -93,6 +93,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TiltEffect.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Chords.xaml.cs">
       <DependentUpon>Chords.xaml</DependentUpon>

@@ -20,6 +20,7 @@ namespace sample1
         byte[] buffer;
         MemoryStream stream = new MemoryStream();
         SoundEffect sound;
+        List<SoundEffect> listSounds = new List<SoundEffect>();
 
         public Record()
         {
@@ -57,7 +58,12 @@ namespace sample1
         private void playButton_Click(object sender, RoutedEventArgs e)
         {
             sound = new SoundEffect(stream.ToArray(), microphone.SampleRate, AudioChannels.Mono);
-            sound.Play();
+            listSounds.Add(sound);
+            
+            foreach(SoundEffect soundItem in listSounds){
+                soundItem.Play();
+            }
+            stream = new MemoryStream();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

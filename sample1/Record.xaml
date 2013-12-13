@@ -28,9 +28,9 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Margin="14,138,10,23" Grid.RowSpan="2">
-            <Button Content="Record" HorizontalAlignment="Left" Margin="103,182,0,0" VerticalAlignment="Top" Click="recordButton_Click"/>
-            <Button Content="Stop" HorizontalAlignment="Left" Margin="274,182,0,0" VerticalAlignment="Top" Click="stopButton_Click"/>
-            <Button Content="Play" HorizontalAlignment="Left" Margin="176,307,0,0" VerticalAlignment="Top" Click="playButton_Click"/>
+            <Button Content="Record" HorizontalAlignment="Left" Margin="10,282,0,0" VerticalAlignment="Top" Click="recordButton_Click" Width="213"/>
+            <Button Content="Stop" HorizontalAlignment="Left" Margin="228,282,0,0" VerticalAlignment="Top" Click="stopButton_Click" Width="228"/>
+            <Button Content="Play" HorizontalAlignment="Left" Margin="96,359,0,0" VerticalAlignment="Top" Click="playButton_Click" Width="257"/>
 
         </Grid>
     </Grid>

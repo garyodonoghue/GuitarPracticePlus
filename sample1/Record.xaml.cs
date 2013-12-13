@@ -60,6 +60,7 @@ namespace sample1
             sound = new SoundEffect(stream.ToArray(), microphone.SampleRate, AudioChannels.Mono);
             listSounds.Add(sound);
             
+            //These will prob need to be in their own threads to get the 'playing sounds over one another' working properly
             foreach(SoundEffect soundItem in listSounds){
                 soundItem.Play();
             }

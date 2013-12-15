@@ -18,8 +18,7 @@ namespace sample1
     public partial class Metronome : PhoneApplicationPage
     {
         Task playSoundTask = null;
-        CancellationToken ct;
-        CancellationTokenSource tokenSource2;
+        int frequency = 0;
 
         public Metronome()
         {
@@ -28,68 +27,47 @@ namespace sample1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            int value = Convert.ToInt32(freqBtn.Content);
-
-            if (tokenSource2 != null)
-            {
-                ct = tokenSource2.Token;
-                tokenSource2.Cancel();
-            }
-
-            if ((value) > 0)
-            {
-                value = value - 1;
-                freqBtn.Content = value;
-
-                if (!ct.IsCancellationRequested)
-                {
-                    tokenSource2 = new CancellationTokenSource();
-                    playSoundTask = Task.Factory.StartNew(() => { playSound(value); }, tokenSource2.Token);
-                }
-                else
-                {
-                    ct.ThrowIfCancellationRequested();
-                }
-            }
+            changeFrequency(false);
         }
 
-        //This needs to be in its own thread so it can also listen out for button 
-        private void playSound(int frequency)
+        //Need to use global variable for the frequency.
+        private void playSound()
         {
-            while (true)
-            {
-                Stream stream = TitleContainer.OpenStream("Sound/Click1.wav");
+             Stream stream = TitleContainer.OpenStream("Sound/Click1.wav");
                 SoundEffect effect = SoundEffect.FromStream(stream);
                 FrameworkDispatcher.Update();
-                effect.Play();
-                Thread.Sleep(1000/frequency);
+                
+                if (frequency > 0)
+                {
+                    effect.Play();
+                    Thread.Sleep(1000 / (frequency));
+                }
+            }
+
+        private void changeFrequency(bool incrementValue)
+        {
+            int value = Convert.ToInt32(freqBtn.Content);
+
+            if (incrementValue && (value) < 10)
+            {
+                freqBtn.Content = value + 1;
+            }
+            if (!incrementValue && (value) > 0)
+            {
+                freqBtn.Content = value - 1;
+            }
+
+            frequency = Convert.ToInt32(freqBtn.Content);
+
+            if (playSoundTask == null)
+            {
+                playSoundTask = Task.Factory.StartNew(() => playSound());
             }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            int value = Convert.ToInt32(freqBtn.Content);
-
-            if (tokenSource2 != null)
-            {
-                ct = tokenSource2.Token;
-                tokenSource2.Cancel();
-                playSoundTask = null;
-            }
-
-            if ((value) < 10)
-            {
-                value = value + 1;
-                freqBtn.Content = value;
-
-                if (!ct.IsCancellationRequested)
-                {
-                    tokenSource2 = new CancellationTokenSource();
-                    playSoundTask = Task.Factory.StartNew(() => { playSound(value); }, tokenSource2.Token);
-                } else{
-                    ct.ThrowIfCancellationRequested();
-                }
-            };
+            changeFrequency(true);
         }
     }
 }

@@ -75,5 +75,15 @@ namespace sample1
         {
             changeFrequency(true);
         }
+
+        //Override the click of the back button
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            //set the frequency value to 0 so the metronome doesnt keep playing
+            frequency = 0;
+
+            //perform normal back key press stuff then
+            base.OnBackKeyPress(e);
+        }
     }
 }

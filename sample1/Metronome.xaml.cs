@@ -31,8 +31,7 @@ namespace sample1
         {
             changeFrequency(false);
         }
-
-        //Need to use global variable for the frequency.
+        
         private void playSound()
         {
                 Stream stream = TitleContainer.OpenStream("Sound/Click1.wav");

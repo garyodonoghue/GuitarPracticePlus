@@ -18,11 +18,13 @@ namespace sample1
     public partial class Metronome : PhoneApplicationPage
     {
         Task playSoundTask = null;
-        int frequency = 0;
+        //start the metronome at 40 bpm
+        int frequency = 40;
 
         public Metronome()
         {
             InitializeComponent();
+            createPlaySoundTask();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -33,14 +35,14 @@ namespace sample1
         //Need to use global variable for the frequency.
         private void playSound()
         {
-             Stream stream = TitleContainer.OpenStream("Sound/Click1.wav");
+                Stream stream = TitleContainer.OpenStream("Sound/Click1.wav");
                 SoundEffect effect = SoundEffect.FromStream(stream);
                 FrameworkDispatcher.Update();
                 
-                if (frequency > 0)
+                while (frequency >= 40)
                 {
                     effect.Play();
-                    Thread.Sleep(1000 / (frequency));
+                    Thread.Sleep((1000*60)/ (frequency));
                 }
             }
 
@@ -48,17 +50,22 @@ namespace sample1
         {
             int value = Convert.ToInt32(freqBtn.Content);
 
-            if (incrementValue && (value) < 10)
+            if (incrementValue && (value) < 120)
             {
                 freqBtn.Content = value + 1;
             }
-            if (!incrementValue && (value) > 0)
+            if (!incrementValue && (value) > 40)
             {
                 freqBtn.Content = value - 1;
             }
 
             frequency = Convert.ToInt32(freqBtn.Content);
 
+            createPlaySoundTask();
+        }
+
+        private void createPlaySoundTask()
+        {
             if (playSoundTask == null)
             {
                 playSoundTask = Task.Factory.StartNew(() => playSound());

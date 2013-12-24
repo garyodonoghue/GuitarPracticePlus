@@ -12,6 +12,8 @@ using System.IO;
 using System.Windows.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using System.Windows.Automation.Peers;
+using System.Windows.Automation.Provider;
 
 namespace sample1
 {
@@ -30,6 +32,8 @@ namespace sample1
         {
             InitializeComponent();
 
+            setUpNoteMap();
+
             // Timer to simulate the XNA Game Studio game loop (Microphone is from XNA Game Studio)
             DispatcherTimer dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromMilliseconds(33);
@@ -40,6 +44,20 @@ namespace sample1
             record();
         }
 
+        private void setUpNoteMap() {
+            noteMap.Add("A", 1);
+            noteMap.Add("A#", 2);
+            noteMap.Add("B/H", 3);
+            noteMap.Add("C", 4);
+            noteMap.Add("C#", 5);
+            noteMap.Add("D", 6);
+            noteMap.Add("D#", 7);
+            noteMap.Add("E", 8);
+            noteMap.Add("F", 9);
+            noteMap.Add("F#", 10);
+            noteMap.Add("G", 11);
+            noteMap.Add("G#", 12);
+        }
         //Change the string the user is trying to tune to
         private void string_Click(object sender, RoutedEventArgs e)
         {
@@ -65,24 +83,62 @@ namespace sample1
             stream.Write(buffer, 0, buffer.Length);
             
             microphone.Stop();
-
-            //Analyse the stream data (byte[])
-            //double[] results = Calculate(convertToDouble(stream.ToArray()));
-            //Console.WriteLine(results);
             
             double freq = FindFundamentalFrequency(convertToDouble(stream.ToArray()), microphone.SampleRate, 60, 1300);
+            System.Diagnostics.Debug.WriteLine("fundamental freq: " + freq);
 
             double closestFrequency;
             string noteName;
 
             string closestNote = FindClosestNote(freq, out closestFrequency, out noteName);
-            System.Diagnostics.Debug.WriteLine("" + closestNote);
+            System.Diagnostics.Debug.WriteLine("closest note: " + closestNote);
+
+            updateDisplay(closestNote);
+
             stream = new MemoryStream();
 
             //record another seconds worth of data
             record();
         }
+        
+        static string[] NoteNames = { "A", "A#", "B/H", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#" };
+        static double ToneStep = Math.Pow(2, 1.0 / 12);
+        Dictionary<string, int> noteMap = new Dictionary<string, int>();
 
+        private void updateDisplay(string closestNte) {
+            int actualNote = noteMap[closestNte];
+            int desiredNote = noteMap[currentString];
+
+            //check if note is flat, sharp or in tune
+            if(actualNote == desiredNote)
+            {
+                ButtonAutomationPeer peer = new ButtonAutomationPeer(noteBtn);
+                IInvokeProvider invokeProv =
+                  peer.GetPattern(PatternInterface.Invoke)
+                  as IInvokeProvider;
+                invokeProv.Invoke();
+            }
+            else if (actualNote < desiredNote) //highlight flat button
+            {
+                ButtonAutomationPeer peer = new ButtonAutomationPeer(flatBtn);
+                IInvokeProvider invokeProv =
+                  peer.GetPattern(PatternInterface.Invoke)
+                  as IInvokeProvider;
+                invokeProv.Invoke();
+            }
+            else {
+                ButtonAutomationPeer peer = new ButtonAutomationPeer(sharpBtn);
+                IInvokeProvider invokeProv =
+                  peer.GetPattern(PatternInterface.Invoke)
+                  as IInvokeProvider;
+                invokeProv.Invoke();
+            }
+
+            noteBtn.Opacity = 1.0;
+            flatBtn.Opacity = 1.0;
+            sharpBtn.Opacity = 1.0;
+        }
+        
         private void record()
         {
             //1. record one second's data. 
@@ -282,9 +338,6 @@ namespace sample1
 
             return (double)sampleRate / minOptimalInterval;
         }
-
-        static string[] NoteNames = { "A", "A#", "B/H", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#" };
-        static double ToneStep = Math.Pow(2, 1.0 / 12);
 
         private string FindClosestNote(double freq, out double closestFrequency, out string noteName)
         {

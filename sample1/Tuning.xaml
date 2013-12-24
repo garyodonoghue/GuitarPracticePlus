@@ -28,7 +28,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Margin="14,124,10,10" Grid.RowSpan="2">
-            <Button x:Name="noteBtn" Content="E" HorizontalAlignment="Left" Margin="163,159,0,0" VerticalAlignment="Top" Height="160" Width="160" RenderTransformOrigin="0.392,0.517"/>
+            <Button x:Name="noteBtn" Content="E" HorizontalAlignment="Left" Margin="166,188,0,0" VerticalAlignment="Top" Height="160" Width="160" RenderTransformOrigin="0.392,0.517"/>
             <Button x:Name="eStringBtn" Content="E" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top" Width="71" Click="string_Click" CommandParameter="E"/>
             <Button x:Name="aStringBtn" Content="A" HorizontalAlignment="Left" Margin="0,103,0,0" VerticalAlignment="Top" Width="71" Click="string_Click" CommandParameter="A"/>
             <Button x:Name="dStringBtn" Content="D" HorizontalAlignment="Left" Margin="0,175,0,0" VerticalAlignment="Top" Width="71" Click="string_Click" CommandParameter="D"/>
@@ -38,8 +38,9 @@
 
 
         </Grid>
-        <Button Content="&#x266D;" HorizontalAlignment="Left" Margin="103,192,0,0" VerticalAlignment="Top" Width="85" Grid.Row="1" RenderTransformOrigin="0.262,0.542"/>
-        <Button Content="&#x266F;" HorizontalAlignment="Left" Margin="327,192,0,0" VerticalAlignment="Top" Width="71" Grid.Row="1"/>
+        <Button x:Name="flatBtn" Content="&#x266D;" HorizontalAlignment="Left" Margin="109,192,0,0" VerticalAlignment="Top" Width="85" Grid.Row="1" RenderTransformOrigin="0.262,0.542"/>
+        <Button x:Name="sharpBtn" Content="&#x266F;" HorizontalAlignment="Left" Margin="329,192,0,0" VerticalAlignment="Top" Width="71" Grid.Row="1"/>
     </Grid>
-
 </phone:PhoneApplicationPage>
+    
+    

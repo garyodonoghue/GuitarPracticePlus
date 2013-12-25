@@ -27,12 +27,14 @@ namespace sample1
         byte[] buffer;
         MemoryStream stream = new MemoryStream();
         List<SoundEffect> listSounds = new List<SoundEffect>();
+        Style defaultStyle;
 
         public Tuning()
         {
             InitializeComponent();
 
             setUpNoteMap();
+            defaultStyle = noteBtn.Style;
 
             // Timer to simulate the XNA Game Studio game loop (Microphone is from XNA Game Studio)
             DispatcherTimer dt = new DispatcherTimer();
@@ -109,34 +111,22 @@ namespace sample1
             int actualNote = noteMap[closestNte];
             int desiredNote = noteMap[currentString];
 
+            noteBtn.Style = defaultStyle;
+            flatBtn.Style = defaultStyle;
+            sharpBtn.Style = defaultStyle;
+
             //check if note is flat, sharp or in tune
             if(actualNote == desiredNote)
             {
-                ButtonAutomationPeer peer = new ButtonAutomationPeer(noteBtn);
-                IInvokeProvider invokeProv =
-                  peer.GetPattern(PatternInterface.Invoke)
-                  as IInvokeProvider;
-                invokeProv.Invoke();
+                noteBtn.Style = (Style)Application.Current.Resources["OrangeButton"];
             }
             else if (actualNote < desiredNote) //highlight flat button
             {
-                ButtonAutomationPeer peer = new ButtonAutomationPeer(flatBtn);
-                IInvokeProvider invokeProv =
-                  peer.GetPattern(PatternInterface.Invoke)
-                  as IInvokeProvider;
-                invokeProv.Invoke();
+                flatBtn.Style = (Style)Application.Current.Resources["OrangeButton"];
             }
             else {
-                ButtonAutomationPeer peer = new ButtonAutomationPeer(sharpBtn);
-                IInvokeProvider invokeProv =
-                  peer.GetPattern(PatternInterface.Invoke)
-                  as IInvokeProvider;
-                invokeProv.Invoke();
+                sharpBtn.Style = (Style)Application.Current.Resources["OrangeButton"];
             }
-
-            noteBtn.Opacity = 1.0;
-            flatBtn.Opacity = 1.0;
-            sharpBtn.Opacity = 1.0;
         }
         
         private void record()

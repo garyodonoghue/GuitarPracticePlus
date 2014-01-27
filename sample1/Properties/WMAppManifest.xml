@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{3968f34a-c66a-46ce-9388-ea817758459b}" Title="sample1" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="sample1 author" Description="Sample description" Publisher="sample1" PublisherID="{2fdda3f7-55af-4f4d-9c67-45db6b209fd4}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{3968f34a-c66a-46ce-9388-ea817758459b}" Title="Guitar Guide Lite" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Gary" Description="Simple app to act as an aid when using the guitar" Publisher="GuitarGuideLite" PublisherID="{2fdda3f7-55af-4f4d-9c67-45db6b209fd4}">
+    <IconPath IsRelative="true" IsResource="false">Images\appIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
@@ -17,10 +17,10 @@
     <Tokens>
       <PrimaryToken TokenID="sample1Token" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+          <SmallImageURI IsRelative="true" IsResource="false">Images\appIcon.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>sample1</Title>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Images\appIcon.png</BackgroundImageURI>
+          <Title>Guitar Guide Lite</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>

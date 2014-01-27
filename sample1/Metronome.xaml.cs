@@ -81,6 +81,7 @@ namespace sample1
         {
             //set the frequency value to 0 so the metronome doesnt keep playing
             frequency = 0;
+            playSoundTask = null;
 
             //perform normal back key press stuff then
             base.OnBackKeyPress(e);

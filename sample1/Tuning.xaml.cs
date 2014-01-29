@@ -21,17 +21,21 @@ namespace sample1
     {
         //default the string to be E, this will be used to track what string the 
         //user is tuning to 
-        string currentString = "E"; 
+        string currentString = "E";
 
-        Microphone microphone = Microphone.Default;
+        Microphone microphone;
         byte[] buffer;
-        MemoryStream stream = new MemoryStream();
-        List<SoundEffect> listSounds = new List<SoundEffect>();
+        MemoryStream stream;
+        List<SoundEffect> listSounds;
         Style defaultStyle;
 
         public Tuning()
         {
             InitializeComponent();
+
+            microphone = Microphone.Default;
+            stream = new MemoryStream();
+            listSounds = new List<SoundEffect>();
 
             setUpNoteMap();
             defaultStyle = noteBtn.Style;
@@ -135,7 +139,8 @@ namespace sample1
             //2. stop.
             //3. analyse the data. 
             //4. repeat
-            microphone.BufferDuration = TimeSpan.FromMilliseconds(1000);
+
+            microphone.BufferDuration = TimeSpan.FromMilliseconds(300);
             buffer = new byte[microphone.GetSampleSizeInBytes(microphone.BufferDuration)];
             microphone.Start();
         }
@@ -411,6 +416,23 @@ namespace sample1
                     optimalInterval = interval;
                 }
             }
+        }
+
+        //Override the click of the back button
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            //FrameworkDispatcher.Update();
+            microphone.BufferReady -= microphone_BufferReady;
+
+            microphone.Stop();
+            microphone = null;
+            buffer = null;
+            stream = null;
+            listSounds = null;
+            defaultStyle = null;
+            
+            //perform normal back key press stuff then
+            base.OnBackKeyPress(e);
         }
     }
 }
